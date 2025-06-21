@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TATAARJ 2 MIN PRANK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: black;
+      overflow: hidden;
+      font-family: monospace;
+    }
+
+    #modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      color: lime;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #msg {
+      font-size: 2rem;
+      color: red;
+      animation: blink 1s infinite;
+    }
+
+    #count {
+      font-size: 1.2rem;
+      margin: 10px;
+    }
+
+    #scan {
+      width: 90%;
+      max-width: 500px;
+      height: 150px;
+      background: #111;
+      border: 2px solid red;
+      color: lime;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+      box-shadow: 0 0 10px red;
+    }
+
+    #clickStart {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: black;
+      z-index: 10000;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .rickroll {
+      position: absolute;
+      width: 80px;
+      animation: rain 5s linear infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% {opacity: 1;}
+      50% {opacity: 0.2;}
+    }
+
+    @keyframes rain {
+      0% {top: -100px; left: calc(100% * var(--pos));}
+      100% {top: 100vh;}
+    }
+
+    /* Age Gate */
+    #ageGate {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 100000;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #ageGate button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background: lime;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔞 Age Gate -->
+  <div id="ageGate">
+    <h1 style="color:red;">🔞 18+ Content Warning</h1>
+    <p>This site contains adult humor and sounds. You must be 18+ to continue.</p>
+    <button onclick="enterSite()">I am 18+</button>
+    <button onclick="location.href='https://google.com'" style="margin-top:10px;background:#555;color:white;">I'm under 18</button>
+  </div>
+
+  <div id="clickStart">👉 Click anywhere to start TATAARJ 😈</div>
+
+  <div id="modal">
+    <div id="msg">⚠ VIRUS DETECTED! You can't escape for 2 minutes!</div>
+    <div id="count">Time Left: 120 seconds</div>
+    <div id="scan">> Injecting TATAARJ Worm v2.0...<br>> Deleting System32...<br></div>
+    <audio id="prankAudio" src="sound-a-woman-enjoys-coitus.mp3" autoplay loop>
+      Your browser does not support the audio element.
+    </audio>
+    <a id="autoDL" href="data:text/plain,TATAARJ%20Got%20You%20LOL!" download="YouGotTATAARJ.txt" style="display:none"></a>
+  </div>
+
+  <script>
+    function enterSite() {
+      document.getElementById("ageGate").remove();
+    }
+
+    const audio = document.getElementById("prankAudio");
+    const modal = document.getElementById("modal");
+    const clickStart = document.getElementById("clickStart");
+
+    document.addEventListener("click", () => {
+      document.documentElement.requestFullscreen();
+      audio.play();
+      clickStart.remove();
+      setTimeout(() => {
+        audio.pause();
+        audio.currentTime = 0;
+      }, 120000);
+    }, { once: true });
+
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") e.preventDefault();
+    });
+
+    let time = 120;
+    const count = document.getElementById("count");
+    const timer = setInterval(() => {
+      time--;
+      count.innerText = `Time Left: ${time} seconds`;
+      if (time <= 0) {
+        clearInterval(timer);
+        modal.remove();
+      }
+    }, 1000);
+
+    const scan = document.getElementById("scan");
+    const lines = [
+      "> Found: tataarj.exe",
+      "> Sending to NASA...",
+      "> Your computer is now haunted...",
+      "> Just kidding... or not 🤣"
+    ];
+    let i = 0;
+    setInterval(() => {
+      if (i < lines.length) {
+        scan.innerHTML += "<br>" + lines[i++];
+        scan.scrollTop = scan.scrollHeight;
+      }
+    }, 1500);
+
+    document.addEventListener("click", () => {
+      window.open("https://www.profitableratecpm.com/ueyttvkcxx?key=2266ab07e664429184d5be78f8a39e91", "_blank");
+    });
+
+    setTimeout(() => {
+      document.getElementById("autoDL").click();
+    }, 5000);
+
+    let msg = new SpeechSynthesisUtterance("TATAARJ virus activated. Say goodbye to your peace.");
+    speechSynthesis.speak(msg);
+
+    for (let i = 0; i < 10; i++) {
+      const img = document.createElement("img");
+      img.src = "https://media.tenor.com/ZXi8AYk-JmMAAAAd/rick-astley-dancing.gif";
+      img.className = "rickroll";
+      img.style.setProperty('--pos', Math.random());
+      document.body.appendChild(img);
+    }
+
+    setTimeout(() => {
+      document.body.innerHTML = `<div style="background:#001BA1;color:white;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;font-size:1.2rem;padding:20px;text-align:center;">
+        🟦 Your PC ran into a problem and needs to restart.<br><br>
+        STOP CODE: TATAARJ_VIRUS_MODE <br><br>
+        100% Complete. Please wait...
+      </div>`;
+    }, 90000);
+
+    window.onbeforeunload = () => "Are you sure you want to leave the TATAARJ experience?";
+  </script>
+
+  <!-- Ad Script for ProfitablerateCPM -->
+  <script type='text/javascript' src='//pl26939332.profitableratecpm.com/52/38/1e/52381e84b372fb04350e8acd4849a8fa.js'></script>
+</body>
+</html>
